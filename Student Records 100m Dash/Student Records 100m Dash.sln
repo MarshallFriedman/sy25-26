@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Student Records 100m Dash", "Student Records 100m Dash\Student Records 100m Dash.pyproj", "{68E4212B-7578-4362-83F9-22C5E43E817F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68E4212B-7578-4362-83F9-22C5E43E817F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E4212B-7578-4362-83F9-22C5E43E817F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B85C46B-50C8-44B4-83C8-5E20B7C5C494}
+	EndGlobalSection
+EndGlobal

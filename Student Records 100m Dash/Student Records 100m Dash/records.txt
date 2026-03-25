@@ -1,0 +1,11 @@
+Marshall,1.67
+Jordan,12
+David,10
+Aidian,11
+James,13
+Jacob,17
+Jack,9
+Mathew,13.4
+Jake,14.1
+Nate,6.7
+j,67
