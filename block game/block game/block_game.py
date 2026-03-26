@@ -22,6 +22,13 @@ enemy_size = 50
 enemy_pos = [random.randint(0, WIDTH - enemy_size), 0]
 enemy_speed = 10
 
+# Load enemy images and scale them
+enemy_images = [
+    pygame.transform.scale(pygame.image.load("download.jpg"), (enemy_size, enemy_size)),
+    pygame.transform.scale(pygame.image.load("cat.png"), (enemy_size, enemy_size))
+]
+enemy_image_index = 0  # 0 for dog, 1 for cat
+
 score = 0
 game_over = False
 
@@ -50,23 +57,22 @@ while not game_over:
     # --- CLOSE CALL DETECTION & SCREEN SHAKE ---
     player_rect = pygame.Rect(player_pos[0], player_pos[1], player_size, player_size)
     enemy_rect = pygame.Rect(enemy_pos[0], enemy_pos[1], enemy_size, enemy_size)
-    # Check for close call (enemy passes within 20 pixels of player, but no collision)
     close_call_zone = pygame.Rect(player_pos[0], player_pos[1] - 20, player_size, player_size + 40)
     if (enemy_rect.colliderect(close_call_zone) and not player_rect.colliderect(enemy_rect)
         and enemy_pos[1] + enemy_size >= player_pos[1] and enemy_pos[1] < player_pos[1]):
         shake_frames = SHAKE_DURATION
-        print("Close call detected!")  # Debugging message
 
     # --- ENEMY RESET & DYNAMIC DIFFICULTY ---
     if enemy_pos[1] > HEIGHT:
         enemy_pos[1] = 0
         enemy_pos[0] = random.randint(0, WIDTH - enemy_size)
         score += 1
-        # Increase player size for dynamic difficulty
         player_size += 5
-        # Keep player within bounds after size increase
+        enemy_speed += 1
         player_pos[0] = min(player_pos[0], WIDTH - player_size)
-        print(f"Score: {score}")
+        # Switch enemy image
+        enemy_image_index = 1 - enemy_image_index
+        print(f"Score: {score}, Enemy Speed: {enemy_speed}")
 
     # --- COLLISION DETECTION ---
     player_rect = pygame.Rect(player_pos[0], player_pos[1], player_size, player_size)
@@ -85,8 +91,9 @@ while not game_over:
         offset_y = 0
 
     screen.fill((0, 0, 0))
-    # Draw enemy and player with shake offset
-    pygame.draw.rect(screen, RED, (enemy_pos[0] + offset_x, enemy_pos[1] + offset_y, enemy_size, enemy_size))
+    # Draw enemy image with shake offset
+    screen.blit(enemy_images[enemy_image_index], (enemy_pos[0] + offset_x, enemy_pos[1] + offset_y))
+    # Draw player as a blue rectangle with shake offset
     pygame.draw.rect(screen, BLUE, (player_pos[0] + offset_x, player_pos[1] + offset_y, player_size, player_size))
 
     pygame.display.update()
