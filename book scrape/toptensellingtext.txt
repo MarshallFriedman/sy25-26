@@ -1,0 +1,17 @@
+Top 10 Best Selling Books
+Availability Status
+Data is allowed to be pulled from the site
+Positions
+Jordan - Tester, Developer, QA
+Marshall - Product Manager, Developer
+Site Accessibility
+Books cost money to read
+Potential Risks
+Data Accuracy, the rankings can change.
+Data may allow scraping, but may not in the future.
+
+Summary
+Our code is gonna grab every book from the website, but then take 10 of the best-selling books and list them in a 1-10 list from the most best-selling to the least best-selling out of the 10 and also show the price of these books and the star rating and it finds the author and when it was published and also show the least popular book.
+
+Bug Report
+Publication date stays unknown
